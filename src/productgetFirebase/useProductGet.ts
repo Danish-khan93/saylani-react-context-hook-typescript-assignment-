@@ -14,15 +14,16 @@ type UPLOADPRODUCT = {
 export const useProductGet = () => {
   const [product, setProduct] = useState<UPLOADPRODUCT[] | []>([]);
 
-  const getdataqurey = async () => {
+  const getdataqurey  = async () => {
     const querySnapshot = await getDocs(collection(db, "product"));
 
     const FBDATABASE = querySnapshot.docs;
 
-    const dataDDB = FBDATABASE.map((value) => {
+
+    const dataDDB =  FBDATABASE.map((value) => {
       return value.data();
     });
-    // return dataDDB
+
     // @ts-ignore
 
     setProduct(dataDDB);

@@ -12,11 +12,13 @@ import { useContext } from "react";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 import { AuthContext } from "../context/AuthContext";
+import { CartContext } from "../context/CartContext";
 const Header = () => {
   const navigate = useNavigate();
   const userName = auth.currentUser?.displayName;
   const { login } = useContext(AuthContext);
-  
+  // @ts-ignore
+  const {count} = useContext(CartContext)
 
   const clickHandle = () => {
     signOut(auth)
@@ -55,7 +57,7 @@ const Header = () => {
                 <IconButton>
                   <ShoppingCartIcon className="text-white" />
                   <span className="w-7 h-7 rounded-full bg-black text-white text-[20px] relative right-2 bottom-2">
-                    {0}
+                    {count}
                   </span>
                 </IconButton>
               </Link>

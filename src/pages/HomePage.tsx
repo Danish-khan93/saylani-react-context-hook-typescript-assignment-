@@ -4,6 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 type UPLOADPRODUCT = {
   title: string;
   detail: string;
@@ -15,7 +16,8 @@ type UPLOADPRODUCT = {
 
 const HomePage = () => {
   const [productHomePage, setProductHomePage] = useState<any>([]);
-  console.log(productHomePage);
+
+  
 
   useEffect(() => {
     const getdataqurey = async () => {
@@ -36,7 +38,7 @@ const HomePage = () => {
     return (
       // `/product/${value.id}`
       <Link to={`/product/${value.id}`} key={value.id}>
-        <ProductCard value={value} key={value.id} />;
+        <ProductCard value={value} key={value.id} />
       </Link>
     );
   });
