@@ -3,7 +3,7 @@ import { useProductGet } from "../productgetFirebase/useProductGet";
 import { useParams, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { CartContext } from "../context/CartContext";
+// import { CartContext } from "../context/CartContext";
 import { ProductContext } from "../context/ProductContext";
 type UPLOADPRODUCT = {
   title: string;
@@ -19,14 +19,14 @@ const IndividualProduct = () => {
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
   // @ts-ignore
-  const { count, setCount } = useContext(CartContext);
+  // const { count, setCount } = useContext(CartContext);
   const { productPath, setProductPath } = useContext(ProductContext);
   const clickHandel = () => {
     if (login) {
-      setCount(count + 1);
+      // setCount(count + 1);
 
       setProductPath([...productPath,inProduct]);
-      console.log(count, "count");
+      // console.log(count, "count");
       console.log(productPath);
       
 
